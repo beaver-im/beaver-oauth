@@ -24,7 +24,7 @@
     <p v-if="pageError" class="auth-error">{{ pageError }}</p>
     <div v-else class="auth-card">
       <beaver-login
-        :oauth-id="appId"
+        :oauth-id="oauthId"
         :api-base="apiBase"
         :redirect-url="redirectUri"
       />
@@ -42,7 +42,7 @@ export default defineComponent({
   setup() {
     const params = new URLSearchParams(window.location.search)
 
-    const appId = ref(params.get('appId') || '')
+    const oauthId = ref(params.get('oauthId') || '')
     const redirectUri = ref(params.get('redirectUri') || '')
     const apiBase = config.baseAPI
     const pageError = ref('')
@@ -50,13 +50,13 @@ export default defineComponent({
     onMounted(() => {
       BeaverSDK.register()
 
-      if (!appId.value) {
-        pageError.value = '缺少 appId，请从第三方应用授权入口进入'
+      if (!oauthId.value) {
+        pageError.value = '缺少 oauthId，请从第三方应用授权入口进入'
       }
     })
 
     return {
-      appId,
+      oauthId,
       redirectUri,
       apiBase,
       pageError
