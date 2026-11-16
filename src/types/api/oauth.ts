@@ -25,7 +25,7 @@ export interface IGetQrCodeSceneReq {
 
 export interface IGetQrCodeSceneRes {
   sceneId: string
-  appId: string
+  oauthId: string
   appName: string
   appIcon: string
   status: "waiting" | "scanned" | "confirmed" | "cancelled" | "expired"

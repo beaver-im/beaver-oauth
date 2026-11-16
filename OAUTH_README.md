@@ -20,7 +20,7 @@ npm install
 npm run dev
 ```
 
-访问：http://localhost:5173/oauth/authorize?appId=xxx&redirectUri=xxx
+访问：http://localhost:5173/oauth/authorize?oauthId=xxx&redirectUri=xxx
 
 ## 🔧 配置
 
@@ -39,7 +39,7 @@ const config = {
 ### 1. 第三方网站引导用户授权
 
 ```javascript
-const authUrl = `http://beaver-oauth.com/oauth/authorize?appId=${APP_ID}&redirectUri=${REDIRECT_URI}&scope=user_info&state=random123`;
+const authUrl = `http://beaver-oauth.com/oauth/authorize?oauthId=${APP_ID}&redirectUri=${REDIRECT_URI}&scope=user_info&state=random123`;
 window.location.href = authUrl;
 ```
 
@@ -60,7 +60,7 @@ http://third-party.com/callback?code=AUTH_CODE&state=random123
 ```javascript
 POST http://localhost:8888/api/open/v1/oauth/token
 {
-  "appId": "your_app_id",
+  "oauthId": "your_app_id",
   "appSecret": "your_app_secret",
   "code": "AUTH_CODE"
 }
