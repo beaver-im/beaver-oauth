@@ -58,7 +58,7 @@ http://third-party.com/callback?code=AUTH_CODE&state=random123
 ### 4. 第三方网站用 code 换取 token
 
 ```javascript
-POST http://localhost:8888/api/open/v1/oauth/token
+POST http://localhost:8888/beaver-open/api/open/secret_public/v1/token
 {
   "oauthId": "your_app_id",
   "appSecret": "your_app_secret",
